@@ -1,49 +1,52 @@
-[![Bourbon Neat](http://neat.bourbon.io/images/logotype.svg)](http://thoughtbot.com/neat)
+[![Bourbon Neat](http://neat.bourbon.io/images/logotype.svg)](http://neat.bourbon.io)
 
--
-
-[![Gem Version](http://img.shields.io/gem/v/neat.svg?style=flat)](https://rubygems.org/gems/neat) [![Travis](http://img.shields.io/travis/thoughtbot/neat.svg?style=flat)](https://travis-ci.org/thoughtbot/neat)
+[![Gem Version](http://img.shields.io/gem/v/neat.svg?style=flat)](https://rubygems.org/gems/neat)
+[![Travis](http://img.shields.io/travis/thoughtbot/neat.svg?style=flat)](https://travis-ci.org/thoughtbot/neat)
 [![Code Climate](http://img.shields.io/codeclimate/github/thoughtbot/neat.svg?style=flat)](https://codeclimate.com/github/thoughtbot/neat)
 [![IRC](http://img.shields.io/badge/freenode-%23bourbon--neat-ae3dd2.svg?style=flat)](#)
 [![Stack Overflow](http://img.shields.io/badge/stack%20overflow-neat-ae3dd2.svg?style=flat)](http://stackoverflow.com/questions/tagged/neat)
 
-Neat is an open source fluid grid framework built on top of [Bourbon](http://bourbon.io) with the aim of being easy enough to use out of the box and flexible enough to customize down the road.
+***
 
-:warning: Neat **1.6.0** requires Sass **3.3.x**. If you are using **libsass** or **sass-rails** use **1.5.1**.
+Neat is a fluid grid framework built on top of [Bourbon](http://bourbon.io) with the aim of being easy enough to use out of the box and flexible enough to customize down the road.
 
-Requirements
-===
+## Requirements
+
 - Sass 3.3+
 - Bourbon 3.1+
 
-Install Instructions
-===
-Install/update the dependencies first:
+:warning: Neat **1.6.0** requires Sass **3.3.x**. If you are using **LibSass** or **sass-rails** use **1.5.1**.
 
-```bash
-gem install sass #or gem update sass
-gem install bourbon #or gem update bourbon
-```
-Install Neat:
+## Installation
 
-```bash
-gem install neat
-```
-Then `cd` to your Sass directory and run:
+1. Install/update the dependencies first:
 
-```bash
-bourbon install #If not installed
-neat install
-```
+  ```bash
+  gem install sass # or gem update sass
+  gem install bourbon # or gem update bourbon
+  ```
 
-In your main stylesheet:
+2. Install Neat:
 
-```sass
-@import 'bourbon/bourbon';
-@import 'neat/neat';
-```
+  ```bash
+  gem install neat
+  ```
 
-To update Neat files, run:
+3. Then `cd` to your Sass directory and run:
+
+  ```bash
+  bourbon install # if not already installed
+  neat install
+  ```
+
+3. Import Neat after Bourbon in your main stylesheet:
+
+  ```sass
+  @import "bourbon/bourbon";
+  @import "neat/neat";
+  ```
+
+To update Neat, run:
 
 ```bash
 neat update
@@ -55,16 +58,15 @@ and to remove them:
 neat remove
 ```
 
-Ruby on Rails
-===
+## Installation for Rails
 
-In your Gemfile:
+1. In your Gemfile:
 
-```bash
-gem 'neat'
-```
+  ```ruby
+  gem 'neat'
+  ```
 
-After running `bundle install` you will be able to use Bourbon and Neat together.
+2. After running `bundle install` you will be able to use Bourbon and Neat together.
 
 If you see this error `Bundler could not find compatible versions for gem "sass"` run:
 
@@ -75,25 +77,24 @@ bundle update sass
 Within your `application.css.scss` file place the following:
 
 ```sass
-@import 'bourbon';
-@import 'neat';
+@import "bourbon";
+@import "neat";
 ```
 
-Getting started
-===
+## Using Neat
 
 First off, if you are planning to override the default grid settings (12 columns), it is recommended to create a `_grid-settings.scss` file for that purpose. Make sure to import it right *before* importing Neat:
 
 ```scss
-@import 'bourbon/bourbon'; // or 'bourbon' when in Rails
-@import 'grid-settings';
-@import 'neat/neat'; // or 'neat' when in Rails
+@import "bourbon/bourbon"; // or "bourbon" when in Rails
+@import "grid-settings";
+@import "neat/neat"; // or "neat" when in Rails
 ```
 
 In your newly created  `_grid-settings.scss`, import `neat-helpers` if you are planning to use `new-breakpoint()`, then define your new variables:
 
 ```scss
-@import 'neat/neat-helpers'; // or 'neat-helpers' when in Rails
+@import "neat/neat-helpers"; // or "neat-helpers" when in Rails
 
 // Change the grid settings
 $column: 90px;
@@ -124,7 +125,7 @@ div.element {
 }
 ```
 
-If the element's parent isn't the top-most container, you need to add the number of columns of the parent element to keep the right proportions:
+If the element’s parent isn’t the top-most container, you need to add the number of columns of the parent element to keep the right proportions:
 
 ```scss
 div.container {
@@ -167,8 +168,8 @@ By setting `$visual-grid` to `true`, you can display the base grid in the backgr
 
 The visual grid reflects the changes applied to the grid via the `new-breakpoint()` mixin, as long as the media contexts are defined *before* importing Neat.
 
-Browser support
-===
+## Browser support
+
 - Firefox 3.5+
 - Safari 4.0+
 - Chrome 4.0+
@@ -176,10 +177,9 @@ Browser support
 - IE 9+ (Visual grid is IE10 only)
 - IE 8 with [selectivizr](http://selectivizr.com) (no `media()` support)
 
-Frequently asked questions
-==========================
+## Frequently asked questions
 
-##### How do I use `omega()` in a mobile-first workflow?
+#### How do I use `omega()` in a mobile-first workflow?
 
 Using `omega()` with an `nth-child` pseudo selector in a mobile-first workflow
 will cause the style to be applied to wider-viewport media queries as well. That
@@ -218,34 +218,40 @@ $large-viewport: new-breakpoint(min-width em($second-breakpoint-value + 1));
 ```
 
 If, for some reason, you still think that `omega-reset` is the only way you want to go,
-check out Josh Fry's
+check out Josh Fry’s
 [omega-reset](http://joshfry.me/notes/omega-reset-for-bourbon-neat/).
 
-##### Framework X has this feature that Neat seems to be missing. Can you add it?
+#### Framework X has this feature that Neat seems to be missing. Can you add it?
 
-Unless you [open a pull request](https://github.com/thoughtbot/neat/compare/), the answer is most likely going to be no. Neat is
-lightweight and simple compared to other grid frameworks, and strives to
-remain so. We have plans for adding new features in future versions of the
-framework, but these will be most likely to support new ways of working with
-layouts on the Web, not patches to existing ones.
+Unless you [open a pull request](https://github.com/thoughtbot/neat/compare/),
+the answer is most likely going to be no. Neat is lightweight and simple compared
+to other grid frameworks, and strives to remain so. We have plans for adding new
+features in future versions of the framework, but these will be most likely to
+support new ways of working with layouts on the Web, not patches to existing ones.
 
-Links
-=====
+## Links
 
 - Read the [online documentation](http://neat.bourbon.io/docs/).
 - Add the docset to [Dash](http://kapeli.com/dash) 1.8+ (Preferences **>** Downloads **>** + *Add Docset Feed* **>** `http://neat.bourbon.io/docset/Neat.xml`)
-- Ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/neat). Don't forget to tag them `bourbon` and `neat`.
+- Ask questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/neat). Don’t forget to tag them `bourbon` and `neat`.
 - Suggest features or file bugs in [Issues](https://github.com/thoughtbot/neat/issues).
-- Read the [contribution guidelines](https://github.com/thoughtbot/neat/blob/master/CONTRIBUTING.md).
+- Read the [contributing guidelines](https://github.com/thoughtbot/neat/blob/master/CONTRIBUTING.md).
 - Say hi to [@kaishin](https://twitter.com/kaishin) and [@kylefiedler](https://twitter.com/kylefiedler).
 - Join `#bourbon-neat` on `irc.freenode.net`.
 
+## The Bourbon family
 
-Credits & License
-=================
+- [Bourbon](http://bourbon.io): A simple and lightweight mixin library for Sass
+- [Neat](http://neat.bourbon.io): A lightweight semantic grid framework for Sass and Bourbon
+- [Bitters](http://bitters.bourbon.io): Scaffold styles, variables and structure for Bourbon projects
+- [Refills](http://refills.bourbon.io): Prepackaged patterns and components, built on top of Bourbon, Bitters & Neat
+
+## Credits
 
 ![thoughtbot](http://thoughtbot.com/images/tm/logo.png)
 
-Bourbon is maintained and funded by [thoughtbot, inc](http://thoughtbot.com/). Follow [@thoughtbot](http://twitter.com/thoughtbot) on Twitter.
+Neat is maintained and funded by [thoughtbot, inc](http://thoughtbot.com). Tweet your questions or suggestions to [@kaishin](http://twitter.com/kaishin) or [@thoughtbot](https://twitter.com/thoughtbot).
 
-Bourbon Neat is Copyright © 2012-2014 thoughtbot. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+## License
+
+Neat is Copyright © 2014 thoughtbot. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE.md) file.
