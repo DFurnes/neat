@@ -1,0 +1,29 @@
+{
+  "name": "neat",
+  "private": true,
+  "version": "1.7.0-pre",
+  "description": "A semantic, fluid grid framework on top of Sass and Bourbon.",
+  "keywords": [
+    "css",
+    "mixins",
+    "sass",
+    "scss"
+  ],
+  "homepage": "http://neat.bourbon.io",
+  "bugs": {
+    "url": "https://github.com/thoughtbot/neat/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "thoughtbot",
+    "url": "http://thoughtbot.com"
+  },
+  "main": "app/assets/stylesheets/_neat.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thoughtbot/neat.git"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  }
+}
